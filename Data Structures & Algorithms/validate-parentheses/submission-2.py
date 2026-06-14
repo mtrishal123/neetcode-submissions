@@ -1,0 +1,15 @@
+class Solution:
+    def isValid(self, s: str) -> bool:
+        stk = []
+
+        for c in s:
+            if c == '(' or c == '[' or c == '{':
+                stk.append(c)
+            else:
+                if c == ')' and stk[-1] == '(':
+                    stk.pop()
+                elif c == ']' and stk[-1] == '[':
+                    stk.pop()
+                elif c == '}' and stk[-1] == '{':
+                    stk.pop()
+        return len(stk) == 0
